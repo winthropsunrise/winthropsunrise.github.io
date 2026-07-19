@@ -292,6 +292,189 @@ figcaption {
 .callout p:last-child { margin-bottom: 0; }
 .callout strong { color: var(--navy); }
 
+/* ==========================================================================
+   Day Trips page components
+   ========================================================================== */
+
+/* ---------- Anchor nav under the hero ---------- */
+.day-trip-nav {
+  position: sticky; top: 61px; z-index: 90;
+  background: rgba(255, 253, 250, .95);
+  backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.day-trip-nav ul {
+  list-style: none; margin: 0; padding: .7rem 0;
+  display: flex; gap: .4rem; flex-wrap: nowrap;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.day-trip-nav a {
+  display: block; white-space: nowrap;
+  padding: .4rem .85rem; border-radius: 999px;
+  font-size: .9rem; font-weight: 500; text-decoration: none;
+  color: var(--ink-soft); background: var(--sand);
+  border: 1px solid transparent;
+  transition: background .15s, color .15s;
+}
+.day-trip-nav a:hover,
+.day-trip-nav a:focus-visible { background: var(--peach); color: var(--coral-dark); }
+
+/* ---------- Trip metadata row ---------- */
+.trip-meta {
+  display: grid; gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  background: var(--line);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; margin-top: 1.8rem;
+}
+.trip-meta div { background: var(--paper); padding: 1rem 1.2rem; }
+.trip-meta dt {
+  font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-soft); margin-bottom: .25rem;
+}
+.trip-meta dd { margin: 0; font-weight: 600; color: var(--navy); font-size: .97rem; }
+
+/* Hero variant of the meta row, sitting on the dark overlay */
+.hero .trip-meta { background: rgba(255, 255, 255, .18); border-color: rgba(255, 255, 255, .28); }
+.hero .trip-meta div { background: rgba(15, 26, 45, .55); }
+.hero .trip-meta dt { color: var(--peach); }
+.hero .trip-meta dd { color: #fff; }
+
+/* ---------- Destination hero (section opener with photo) ---------- */
+.destination-hero {
+  position: relative; border-radius: var(--radius); overflow: hidden;
+  margin-bottom: 2rem; background: var(--navy);
+  min-height: 300px; display: grid; align-items: end;
+}
+.destination-hero img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.destination-hero::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(15, 26, 45, .88) 5%, rgba(15, 26, 45, .35) 55%, rgba(15, 26, 45, .05) 100%);
+}
+.destination-hero .dh-body { position: relative; z-index: 2; padding: 2rem 1.8rem 1.7rem; }
+.destination-hero h2 { color: #fff; margin-bottom: .35rem; }
+.destination-hero p { color: rgba(255, 255, 255, .93); margin: 0; max-width: 60ch; }
+.destination-hero .kicker { color: var(--peach); }
+
+/* ---------- Itinerary timeline ---------- */
+.itinerary { list-style: none; margin: 0; padding: 0; }
+.itinerary-stop {
+  position: relative; display: grid;
+  grid-template-columns: 6.2rem 1fr; gap: 0 1.3rem;
+  padding-bottom: 1.4rem;
+}
+.itinerary-stop:last-child { padding-bottom: 0; }
+.itinerary-stop .time {
+  font-family: var(--serif); font-weight: 600; font-size: 1rem;
+  color: var(--coral-dark); text-align: right; padding-top: .05rem;
+  font-variant-numeric: tabular-nums;
+}
+.itinerary-stop .what { padding-left: 1.3rem; border-left: 2px solid var(--line); padding-bottom: .2rem; }
+.itinerary-stop:last-child .what { border-left-color: transparent; }
+.itinerary-stop .what::before {
+  content: ""; position: absolute; left: 6.2rem;
+  width: 9px; height: 9px; margin-left: -4px; margin-top: .42rem;
+  border-radius: 50%; background: var(--coral);
+  box-shadow: 0 0 0 3px var(--paper);
+}
+.itinerary-stop strong { color: var(--navy); display: block; }
+.itinerary-stop span.detail { color: var(--ink-soft); font-size: .93rem; }
+
+@media (max-width: 560px) {
+  .itinerary-stop { grid-template-columns: 1fr; gap: .15rem; }
+  .itinerary-stop .time { text-align: left; }
+  .itinerary-stop .what { padding-left: 0; border-left: none; }
+  .itinerary-stop .what::before { display: none; }
+  .itinerary-stop { border-left: 2px solid var(--line); padding-left: 1rem; }
+  .itinerary-stop:last-child { border-left-color: transparent; }
+}
+
+/* ---------- Restaurant cards ---------- */
+.restaurant-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(285px, 1fr)); }
+.restaurant-grid .card { display: flex; flex-direction: column; }
+.restaurant-grid .card .actions { margin-top: auto; padding-top: .9rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+
+.price {
+  display: inline-block; margin-left: .5rem;
+  font-size: .8rem; font-weight: 700; color: var(--ocean);
+  letter-spacing: .04em; vertical-align: middle;
+}
+.btn-sm {
+  display: inline-block; padding: .38rem .85rem;
+  font-size: .82rem; font-weight: 600; border-radius: 999px;
+  text-decoration: none; border: 1px solid var(--line);
+  color: var(--navy); background: var(--paper);
+  transition: background .15s, border-color .15s;
+}
+.btn-sm:hover, .btn-sm:focus-visible { background: var(--sand); border-color: var(--ocean); color: var(--navy); }
+.btn-sm.primary { background: var(--peach); border-color: transparent; color: var(--coral-dark); }
+.btn-sm.primary:hover { background: var(--coral); color: #fff; }
+
+/* ---------- Planning callout ---------- */
+.planning-callout {
+  background: linear-gradient(150deg, var(--navy) 0%, var(--navy-soft) 100%);
+  color: rgba(255, 255, 255, .92);
+  border-radius: var(--radius); padding: 1.5rem 1.7rem; margin: 1.9rem 0;
+}
+.planning-callout h3 { color: #fff; font-size: 1.1rem; margin-bottom: .5rem; }
+.planning-callout p:last-child { margin-bottom: 0; }
+.planning-callout a { color: var(--peach); }
+.planning-callout a:hover { color: #fff; }
+.planning-callout strong { color: #fff; }
+
+.callout-warn { border-left-color: var(--coral); background: #fdf3ee; }
+
+/* ---------- Quick "choose your day" cards ---------- */
+.trip-card {
+  display: block; text-decoration: none;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.2rem 1.3rem;
+  box-shadow: var(--shadow);
+  transition: transform .18s, box-shadow .18s, border-color .18s;
+}
+.trip-card:hover, .trip-card:focus-visible {
+  transform: translateY(-3px); box-shadow: var(--shadow-lift);
+  border-color: var(--coral); color: inherit;
+}
+.trip-card .interest {
+  display: block; font-size: .74rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: .35rem;
+}
+.trip-card .pick {
+  font-family: var(--serif); font-size: 1.12rem; font-weight: 600;
+  color: var(--navy); line-height: 1.3;
+}
+
+/* ---------- Photo feature grid ---------- */
+.photo-feature { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 1.8rem 0; }
+.photo-feature figure { margin: 0; }
+.photo-feature img { border-radius: 10px; box-shadow: var(--shadow); width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+
+/* ---------- Tip list ---------- */
+.tips { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
+.tips li { position: relative; padding-left: 1.75rem; font-size: .97rem; }
+.tips li::before {
+  content: "\2713"; position: absolute; left: 0; top: -.05rem;
+  color: var(--coral-dark); font-weight: 700;
+}
+
+/* ---------- Back to top ---------- */
+.to-top {
+  display: inline-block; margin-top: 2rem;
+  font-size: .87rem; font-weight: 600; text-decoration: none;
+  color: var(--ink-soft);
+}
+.to-top:hover { color: var(--coral-dark); }
+
+/* ---------- Visible focus for keyboard users (site-wide) ---------- */
+a:focus-visible, button:focus-visible, .trip-card:focus-visible {
+  outline: 3px solid var(--ocean); outline-offset: 2px; border-radius: 4px;
+}
+
 /* Attribution under a pull-quote */
 .quote cite {
   display: block; margin-top: .7rem;
