@@ -1,0 +1,12 @@
+# Normalize text files to LF in the repository. Windows checkouts still get
+# CRLF locally; this just keeps the stored version consistent.
+* text=auto eol=lf
+
+# Binary assets - never touch these.
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
