@@ -85,9 +85,14 @@ that happens, the fix is to re-clone from GitHub — which is the real backup.
 
 ## Content notes
 
-- The contact address is written as `winthropsunrise.AT.gmail` throughout,
-  matching the original site's anti-spam obfuscation.
-- Attractions lists 2025 Open Newbury Street dates. These will need updating
-  each year.
+- The footer contact is a live `mailto:` link to `winthropsunrise@gmail.com` on
+  all five pages. The original Google Site obfuscated this as
+  `winthropsunrise.AT.gmail` to deter scrapers; that tradeoff was made
+  deliberately in favor of one-tap contact. If spam becomes a problem, reverting
+  is a five-file find-and-replace.
+- Attractions lists the **2026** Open Newbury Street dates, confirmed against
+  boston.gov. These need updating every year, and the December date was still
+  "to be announced" as of July 2026 — worth a check later in the season.
+  Source: https://www.boston.gov/departments/transportation/open-newbury-street
 - Historic photographs are credited to winthropmemorials.org on the Fun Facts
   page.
